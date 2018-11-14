@@ -1,0 +1,46 @@
+---
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+    experimentalObjectRestSpread: [0]
+plugins:
+  - async-await
+  - promise
+  - react
+root: true
+rules:
+  max-len: [error, { code: 120, ignoreComments: true, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true }]
+  arrow-parens: [off]
+  no-plusplus: [off]
+  indent: [error, 4]
+  function-paren-newline: [off]
+  no-underscore-dangle: [off]
+  # Hard to do express without reassigning params
+  no-param-reassign: [off]
+  # Disable multiple-return rule
+  consistent-return: [off]
+  # the follow rule just isn't important
+  comma-dangle: [off]
+  no-loop-func: [off]
+  no-use-before-define: [off]
+  object-curly-newline: [off]
+  # Avoid useless promise wrapping
+  promise/no-return-wrap: error
+  # Ensure consistent param names
+  promise/param-names: error
+  # Avoid swallowed exceptions
+  promise/catch-or-return: error
+  arrow-body-style: [off]
+  react/jsx-uses-react: error
+  react/jsx-uses-vars: error
+  import/prefer-default-export: [off]
+  class-methods-use-this: [off]
+  prefer-template: [off]
+  no-template-curly-in-string: [off]
+  no-debugger: [off]
+env:
+  es6: true
+  node: true
+  mocha: true
+extends: [airbnb-base]

@@ -1,0 +1,11 @@
+extends ../partials/base.pug
+block container
+	.column-24
+		.column-8.center-column
+			h3 Forgot Password
+			form(method='post')
+				.form-group
+					label.col-md-4 Email
+						input(type='text' name='email')
+				.form-group
+					button.btn.btn-primary(type='submit') Reset Password

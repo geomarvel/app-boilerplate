@@ -1,0 +1,16 @@
+extends ../partials/base.pug
+block container
+	include ../partials/header
+	.panel.panel-primary
+		.panel-heading
+			| Update Password
+		.panel-body
+			form(method='post')
+				.form-group
+					label.col-md-4 New Password
+					input.form-control(type='password',name='password',value='', placeholder='New password', autofocus=true)
+				.form-group
+					label.col-md-4 Confirm Password
+					input.form-control(type='password',name='confirm',value='', placeholder='Confirm password', autofocus=true)
+				.form-group
+					button.btn.btn-primary(type='submit') Update Password

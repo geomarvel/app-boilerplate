@@ -1,0 +1,20 @@
+extends ../partials/base.pug
+block container
+	.column-24
+		.column-8.center-column
+			h3 Register User
+			form(method='post' action='/users/register')
+				.form-group
+					label.col-md-4 Name
+						input(type='text' name='name')
+				.form-group
+					label.col-md-4 Email
+						input(type='text' name='email')
+				.form-group
+					label.col-md-4 Password
+						input(type='password' name='password')
+				.form-group
+					label.col-md-4 Confirm Password
+						input(type='password' name='cfm_pwd')
+				.form-group
+					button.btn.btn-primary.leader-1(type='submit') Register

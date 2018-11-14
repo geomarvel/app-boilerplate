@@ -1,0 +1,30 @@
+// Sample HTML
+header.top-nav.fade-in
+	.grid-container
+		.column-24
+			.tablet-hide
+				a.top-nav-title(href='/') GeoMarvel Candy
+				nav.top-nav-list(role='navigation' aria-labelledby='topnav')
+					if(user)
+						a.top-nav-link(href='#') Dashboard
+						a.top-nav-link(href='/users/logout') Logout
+					else
+						a.top-nav-link(href='/users/register') Register
+						a.top-nav-link(href='/users/login') Login
+
+if (success_message != '')
+	.alert.alert-success
+		p #{success_message}
+
+if (error_message != '')
+	.alert.alert-danger
+		p #{eror_message}
+
+if (error != '')
+	.alert.alert-danger
+		p #{error}
+
+					  
+					  
+
+				
