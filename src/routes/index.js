@@ -5,6 +5,10 @@ router.get('/', isLoggedIn, function(req, res){
   	res.render('pages/index');
 });
 
+router.get('/forgot', isLoggedIn, function(req, res){
+	res.render('pages/index');
+});
+
 function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
 		next();

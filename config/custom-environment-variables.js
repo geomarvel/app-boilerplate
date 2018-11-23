@@ -1,5 +1,5 @@
 module.exports = {
-    port: 'PORT',
+    port:'PORT',
     env: 'NODE_ENV',
     log: {
         level: 'LOG_LEVEL',

@@ -18,6 +18,8 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "http": "0.0.0",
+    "http-shutdown": "^1.2.0",
     "mongodb": "*",
     "mongoose": "*",
     "nodemailer": "^4.6.8",
