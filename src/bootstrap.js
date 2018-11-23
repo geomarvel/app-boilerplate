@@ -7,8 +7,9 @@ import flash from 'connect-flash';
 import session from 'express-session';
 import passport from 'passport';
 import mongoose from 'mongoose';
-import index from './routes/index';
-import users from './routes/users';
+import index from './controllers/index';
+import account from './controllers/account';
+import passwordReset from './controllers/passwordReset'
 import { User, createUser, comparePassword, getUserByEmail, getUserById } from './models/User';
 
 module.exports = {
@@ -88,7 +89,8 @@ module.exports = {
 		});
 
 		app.use('/', index);
-		app.use('/users', users);
+		app.use('/', passwordReset);
+		app.use('/account', account);
 
 		return new Promise((resolve, reject) =>{
 			resolve(app)

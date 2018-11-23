@@ -6,10 +6,10 @@ header.top-nav.fade-in
 				nav.top-nav-list(role='navigation' aria-labelledby='topnav')
 					if(user)
 						a.top-nav-link(href='#') Dashboard
-						a.top-nav-link(href='/users/logout') Logout
+						a.top-nav-link(href='/logout') Logout
 					else
-						a.top-nav-link(href='/users/register') Register
-						a.top-nav-link(href='/users/login') Login
+						a.top-nav-link(href='/signup') Register
+						a.top-nav-link(href='/login') Login
 
 if (success_message != '')
 	.alert.alert-success

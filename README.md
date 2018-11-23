@@ -61,3 +61,34 @@ Prerequisites
 [Node.js and Express 101](https://www.youtube.com/watch?v=BN0JlMZCtNU)
 screencast by Alex Ford that teaches Node and Express from scratch. Alternatively,
 here is another great tutorial for complete beginners - [Getting Started With Node.js, Express, MongoDB](http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/).
+
+
+Routes
+
+/
+
+/login
+
+/signup
+
+/account/fogot
+
+/account/forgot/password
+
+/account/reset/password/:token
+
+/account/profile
+
+/admin
+
+/admin/users
+
+/admin/groups
+
+/admin/roles
+
+/admin/settings
+
+
+
+
