@@ -7,6 +7,7 @@ import nodemailer from 'nodemailer';
 import AWS from 'aws-sdk';
 import bcrypt from 'bcryptjs';
 import config from 'config'
+import email from '../utils/email'
 
 let router =  express.Router();
 
@@ -30,16 +31,7 @@ router.post('/forgot/password', function(req, res, next) {
 			});
 	  },
 	  function(token, user, done) {
-			const sesConfig = new AWS.Config({
-				credentials: {
-					accessKeyId: config.aws.ses_access_key,
-					secretAccessKey: config.aws.ses_secret_key,
-				},
-				region: 'us-east-1',
-			});
-			const SES = new AWS.SES(sesConfig);
-			var smtpTransport = nodemailer.createTransport({SES});
-			var mailOptions = {
+		  var mailOptions = {
 				to: user.email,
 				from: config.aws.ses_authorized_from_email,
 				subject: 'GeoMarvel Candy Password Reset',
@@ -48,10 +40,7 @@ router.post('/forgot/password', function(req, res, next) {
 				'http://' + req.headers.host + '/reset/password/' + token + '\n\n' +
 				'If you did not request this, please ignore this email and your password will remain unchanged.\n'
 			};
-			smtpTransport.sendMail(mailOptions, function(err) {
-				req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
-				done(err, 'done');
-			});
+			email.send(mailOptions,done)
 	  }
 	], function(err) {
 	  	if (err) return next(err);
@@ -97,26 +86,14 @@ router.post('/reset/password/:token', function(req, res) {
             });
 		},
 		function(user, done) {
-            const sesConfig = new AWS.Config({
-                credentials: {
-                    accessKeyId: config.aws.ses_access_key,
-                    secretAccessKey: config.aws.ses_secret_key,
-                },
-                region: 'us-east-1',
-            });
-            const SES = new AWS.SES(sesConfig);
-            var smtpTransport = nodemailer.createTransport({SES});
             var mailOptions = {
                 to: user.email,
                 from: config.aws.ses_authorized_from_email,
                 subject: 'Your password has been changed',
                 text: 'Hello,\n\n' +
                 'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
-            };
-            smtpTransport.sendMail(mailOptions, function(err) {
-                req.flash('success', 'Success! Your password has been changed.');
-                done(err);
-            });
+			};
+			email.send(mailOptions,done)
 		}
 	], function(err) {
 		res.redirect('/');
