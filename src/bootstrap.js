@@ -52,7 +52,7 @@ module.exports = {
 		});
         mongoose.Promise = global.Promise;
 		mongoose.connect('mongodb://localhost/CRMDB', {
-			useMongoClient: true
+			// useMongoClient: true
 		});
 		mongoose.connect;
 
